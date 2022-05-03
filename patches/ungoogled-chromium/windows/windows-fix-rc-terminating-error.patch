@@ -1,6 +1,6 @@
 --- a/build/build_config.h
 +++ b/build/build_config.h
-@@ -120,88 +120,16 @@
+@@ -236,103 +236,16 @@
  
  // Compiler detection. Note: clang masquerades as GCC on POSIX and as MSVC on
  // Windows.
@@ -83,6 +83,21 @@
 -#define ARCH_CPU_32_BITS 1
 -#define ARCH_CPU_BIG_ENDIAN 1
 -#endif
+-#elif defined(__loongarch32)
+-#define ARCH_CPU_LOONG_FAMILY 1
+-#define ARCH_CPU_LOONG32 1
+-#define ARCH_CPU_32_BITS 1
+-#define ARCH_CPU_LITTLE_ENDIAN 1
+-#elif defined(__loongarch64)
+-#define ARCH_CPU_LOONG_FAMILY 1
+-#define ARCH_CPU_LOONG64 1
+-#define ARCH_CPU_64_BITS 1
+-#define ARCH_CPU_LITTLE_ENDIAN 1
+-#elif defined(__riscv) && (__riscv_xlen == 64)
+-#define ARCH_CPU_RISCV_FAMILY 1
+-#define ARCH_CPU_RISCV64 1
+-#define ARCH_CPU_64_BITS 1
+-#define ARCH_CPU_LITTLE_ENDIAN 1
 -#else
 -#error Please add support for your architecture in build/build_config.h
 -#endif
@@ -91,7 +106,7 @@
  #if defined(OS_WIN)
 --- a/chrome/app/chrome_command_ids.h
 +++ b/chrome/app/chrome_command_ids.h
-@@ -376,7 +376,7 @@
+@@ -378,7 +378,7 @@
  #define IDC_MEDIA_ROUTER_ABOUT 51200
  #define IDC_MEDIA_ROUTER_HELP 51201
  #define IDC_MEDIA_ROUTER_LEARN_MORE 51202
@@ -100,7 +115,7 @@
  #define IDC_MEDIA_ROUTER_REPORT_ISSUE 51203
  #endif
  #define IDC_MEDIA_ROUTER_ALWAYS_SHOW_TOOLBAR_ACTION 51204
-@@ -385,7 +385,7 @@
+@@ -387,7 +387,7 @@
  #define IDC_MEDIA_ROUTER_TOGGLE_MEDIA_REMOTING 51208
  
  // Context menu items for media toolbar button
